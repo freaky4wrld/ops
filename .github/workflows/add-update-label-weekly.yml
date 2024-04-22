@@ -3,7 +3,7 @@ name: Schedule Sunday 0700
 on:
   schedule:
     - cron:  '0 7 * * 0'
-   workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   Add-Update-Label-to-Issues-Weekly:
