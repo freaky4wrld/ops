@@ -5,7 +5,8 @@
  * @returns {Array} of Objects containing the issue's timeline of events
  */
 async function getTimeline(issue_number, github, context) {
-  const { owner, repo } = context.repo;
+  let owner = 'freaky4wrld';
+  let repo = 'ops'
   let timelineArr = [];
   let page = 1, retries = 0;
   const per_page = 100, maxRetries = 3;

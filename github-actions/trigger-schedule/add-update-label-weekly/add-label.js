@@ -191,8 +191,8 @@ async function removeLabels(issueNum, ...labels) {
     try {
       // https://octokit.github.io/rest.js/v18#issues-remove-label
       const response = await github.rest.issues.removeLabel({
-        owner: context.repo.owner,
-        repo: context.repo.repo,
+        owner: 'freaky4wrld',
+        repo: 'ops',
         issue_number: issueNum,
         name: label,
       });
@@ -216,8 +216,8 @@ async function addLabels(issueNum, ...labels) {
   try {
     // https://octokit.github.io/rest.js/v18#issues-add-labels
     await github.rest.issues.addLabels({
-      owner: context.repo.owner,
-      repo: context.repo.repo,
+      owner: 'freaky4wrld',
+      repo: 'ops',
       issue_number: issueNum,
       labels: labels,
     });
@@ -233,9 +233,9 @@ async function postComment(issueNum, assignees, labelString) {
     const assigneeString = assignees.map(assignee => `@${assignee}`).join(', '); // createAssigneesString
     const instructions = formatComment(assigneeString, labelString);
     await github.rest.issues.createComment({
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-      issue_number: issueNum,
+      owner: 'freaky4wrld',
+      repo: 'ops',
+      issue_number: 1,
       body: instructions,
     });
   } catch (err) {
@@ -255,8 +255,8 @@ function isMomentRecent(dateString, cutoffTime) {
 async function getAssignees(issueNum) {
   try {
     const results = await github.rest.issues.get({
-      owner: context.repo.owner,
-      repo: context.repo.repo,
+      owner: 'hackforla',
+      repo: 'ops',
       issue_number: issueNum,
     });
     const assigneesData = results.data.assignees;
